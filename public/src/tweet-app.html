@@ -1,6 +1,7 @@
 <link rel='import' href='../bower_components/polymer/polymer.html'>
 <link rel='import' href='../bower_components/polymerfire/firebase-app.html'>
 <link rel='import' href='../bower_components/polymerfire/firebase-auth.html'>
+<link rel='import' href='../bower_components/platinum-sw/platinum-sw-elements.html'>
 
 <link rel='import' href='shared-styles.html'>
 <link rel='import' href='app-bar.html'>
@@ -22,6 +23,17 @@
       user='{{user}}'
       signed-in='{{signedIn}}'>
     </firebase-auth>
+
+    <platinum-sw-register
+      auto-register
+      skip-waiting
+      clients-claim
+      reload-on-install
+      href='/sw-import.js'>
+      <platinum-sw-cache
+        default-cache-strategy='networkFirst'>
+      </platinum-sw-cache>
+    </platinum-sw-register>
 
     <app-bar
       signed-in='[[signedIn]]'

@@ -16,6 +16,7 @@
   ],
   "dependencies": {
     "polymer": "Polymer/polymer#^1.5.0",
-    "polymerfire": "Firebase/polymerfire#^0.9.3"
+    "polymerfire": "Firebase/polymerfire#^0.9.3",
+    "platinum-sw": "^1.3.0"
   }
 }
