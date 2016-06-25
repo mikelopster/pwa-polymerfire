@@ -7,13 +7,42 @@
 
     <style include='shared-styles'></style>
 
-    Hi I'm app-bar
+    <header>
+      <div class='title'>Tweet App</div>
+
+      <template is='dom-if' if='[[signedIn]]'>
+        <div class='user'>
+          <div>[[name]]</div>
+          <img src='[[image]]'>
+        </div>
+      </template>
+
+      <template is='dom-if' if='[[!signedIn]]'>
+        <button class='login' on-click='signIn'>Login</button>
+      </template>
+    </header>
 
   </template>
   <script>
 
     Polymer({
-      is: 'app-bar'
+      is: 'app-bar',
+
+      properties: {
+        signedIn: {
+          type: Boolean
+        },
+        name: {
+          type: String
+        },
+        image: {
+          type: String
+        }
+      },
+
+      signIn: function () {
+        this.fire('sign-in');
+      }
     });
 
   </script>
