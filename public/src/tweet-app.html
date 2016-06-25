@@ -1,4 +1,6 @@
 <link rel='import' href='../bower_components/polymer/polymer.html'>
+<link rel='import' href='../bower_components/polymerfire/firebase-app.html'>
+<link rel='import' href='../bower_components/polymerfire/firebase-auth.html'>
 
 <link rel='import' href='shared-styles.html'>
 <link rel='import' href='app-bar.html'>
@@ -9,9 +11,23 @@
 
     <style include='shared-styles'></style>
 
-    Hi I'm tweet-app
+    <firebase-app
+      auth-domain='tweet-app-78cb7.firebaseapp.com'
+      database-url='https://tweet-app-78cb7.firebaseio.com'
+      api-key='AIzaSyAXOliRTIsDiRqHSM4t9f4IRGoQK69PEyc'>
+    </firebase-app>
 
-    <app-bar></app-bar>  
+    <firebase-auth id='auth'
+      provider='google'
+      user='{{user}}'
+      signed-in='{{signedIn}}'>
+    </firebase-auth>
+
+    <app-bar
+      signed-in='[[signedIn]]'
+      name='[[user.displayName]]'
+      image='[[user.photoURL]]'>
+    </app-bar>
 
     <tweet-feed></tweet-feed>
 
@@ -19,7 +35,24 @@
   <script>
 
     Polymer({
-      is: 'tweet-app'
+      is: 'tweet-app',
+
+      properties: {
+        signedIn: {
+          type: Boolean
+        },
+        user: {
+          type: Object
+        }
+      },
+
+      listeners: {
+        'sign-in': 'onSignIn'
+      },
+
+      onSignIn: function () {
+        this.$.auth.signInWithPopup();
+      }
     });
 
   </script>
