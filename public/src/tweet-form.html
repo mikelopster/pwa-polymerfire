@@ -7,13 +7,27 @@
 
     <style include='shared-styles'></style>
 
-    Hi I'm tweet-form
+    <form on-submit='tweet'>
+      <input type='text' placeholder='Say something' value='{{text::input}}'>
+    </form>
 
   </template>
   <script>
-  
+
     Polymer({
-      is: 'tweet-form'
+      is: 'tweet-form',
+
+      properties: {
+        text: {
+          type: String
+        }
+      },
+
+      tweet: function (event) {
+        this.fire('tweet', { text: this.text });
+        this.text = '';
+        event.preventDefault();
+      }
     });
 
   </script>
