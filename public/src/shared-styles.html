@@ -1,0 +1,152 @@
+<dom-module id='shared-styles'>
+  <template>
+
+    <style>
+    ::-webkit-input-placeholder {
+        color: #bcaaa4;
+      }
+      :-moz-placeholder {
+        color: #bcaaa4;
+      }
+      ::-moz-placeholder {
+        color: #bcaaa4;
+      }
+      :-ms-input-placeholder {
+        color: #bcaaa4;
+      }
+
+      input {
+        border: none;
+        background: none;
+        font-size: inherit;
+        font-family: inherit;
+        outline: none;
+      }
+
+      button {
+        display: inline-block;
+        box-sizing: border-box;
+        padding: 0 16px;
+        border: none;
+        background: none;
+        font-size: inherit;
+        line-height: 36px;
+        outline: none;
+        cursor: pointer;
+      }
+
+      header {
+        z-index: 400;
+        position: fixed;
+        top: 0; right: 0; left: 0;
+        display: block;
+        box-sizing: border-box;
+        height: 56px;
+        padding: 0 24px;
+        color: #3e2723;
+        background-color: #ffeb3b;
+        box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.1);
+      }
+
+      header .title {
+        float: left;
+        font-size: 20px;
+        line-height: 56px;
+      }
+
+      header .login {
+        float: right;
+        padding: 10px 0;
+        font-weight: 500;
+        text-transform: uppercase;
+      }
+
+      header .user {
+        float: right;
+      }
+
+      header .user div {
+        display: inline-block;
+        font-size: 16px;
+        line-height: 56px;
+      }
+
+      header .user img {
+        width: 40px;
+        height: auto;
+        margin-left: 16px;
+        border: 2px solid #fff;
+        border-radius: 100%;
+        vertical-align: middle;
+      }
+
+      main {
+        position: relative;
+        display: block;
+        box-sizing: border-box;
+        width: 100%;
+        max-width: 540px;
+        padding: 0 24px;
+        padding-top: 56px;
+        margin: auto;
+      }
+
+      form {
+        display: block;
+        padding: 24px 0;
+      }
+
+      form input {
+        display: block;
+        box-sizing: border-box;
+        width: 100%;
+        padding: 12px 8px;
+        border-bottom: 2px solid #bcaaa4;
+        font-size: 16px;
+        transition: border 0.2s;
+      }
+
+      form input:focus,
+      form input:hover {
+        border-color: #3e2723;
+      }
+
+      article {
+        position: relative;
+        display: block;
+        padding: 16px;
+        border-radius: 4px;
+        background-color: #fff;
+        margin-top: 16px;
+        box-shadow: 0 1px 4px -1px rgba(0, 0, 0, 0.1);
+      }
+
+      article .image {
+        float: left;
+        display: block;
+        width: 56px;
+        height: auto;
+        border-radius: 100%;
+        margin-right: 16px;
+      }
+
+      article .name {
+        margin-top: 4px;
+        font-weight: 500;
+      }
+
+      article .created {
+        position: absolute;
+        top: 22px; right: 16px;
+        margin: 0;
+        font-size: 12px;
+        color: #bcaaa4;
+      }
+
+      article .text {
+        line-height: 24px;
+      }
+    </style>
+
+  </template>
+</dom-module>
