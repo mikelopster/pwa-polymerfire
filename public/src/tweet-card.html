@@ -7,13 +7,33 @@
 
     <style include='shared-styles'></style>
 
-    Hi I'm tweet-card
-    
+    <article>
+      <img class='image' src='[[image]]'>
+      <div class='created'>[[createdTime]]</div>
+      <div class='name'>[[name]]</div>
+      <p class='text'>[[text]]</p>
+    </article>
+
   </template>
   <script>
 
     Polymer({
-      is: 'tweet-card'
+      is: 'tweet-card',
+
+      properties: {
+        name: {
+          type: String
+        },
+        image: {
+          type: String
+        },
+        text: {
+          type: String
+        },
+        createdTime: {
+          type: String
+        }
+      }
     });
 
   </script>
