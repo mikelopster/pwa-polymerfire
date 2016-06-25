@@ -1,0 +1,26 @@
+<link rel='import' href='../bower_components/polymer/polymer.html'>
+
+<link rel='import' href='shared-styles.html'>
+<link rel='import' href='app-bar.html'>
+<link rel='import' href='tweet-feed.html'>
+
+<dom-module id='tweet-app'>
+  <template>
+
+    <style include='shared-styles'></style>
+
+    Hi I'm tweet-app
+
+    <app-bar></app-bar>  
+
+    <tweet-feed></tweet-feed>
+
+  </template>
+  <script>
+
+    Polymer({
+      is: 'tweet-app'
+    });
+
+  </script>
+</dom-module>

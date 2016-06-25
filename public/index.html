@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang='en'>
+  <head>
+
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+    <title>Tweet App</title>
+
+    <link rel='shortcut icon' href='/images/favicon.ico'>
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:300,400,500'>
+    <style>
+      body {
+        margin: 0;
+        font-family: 'Roboto', sans-serif;
+        font-size: 14px;
+        background-color: #fafafa;
+      }
+    </style>
+
+    <script>
+      (function () {
+        if ('registerElement' in document &&
+            'import' in document.createElement('link') &&
+            'content' in document.createElement('template')) {
+          // browser has webcomponents
+        } else {
+          var e = document.createElement('script');
+          e.src = '/bower_components/webcomponentsjs/webcomponents-lite.js';
+          document.head.appendChild(e);
+        }
+        window.Polymer = { lazyLoad: true, dom: 'shadow' };
+      }());
+    </script>
+    <link rel='import' href='/src/tweet-app.html'>
+
+  </head>
+  <body>
+
+    <tweet-app></tweet-app>
+
+  </body>
+</html>
