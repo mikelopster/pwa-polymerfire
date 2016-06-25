@@ -1,0 +1,27 @@
+{
+  "name": "Tweet App",
+  "short_name": "Tweet App",
+  "icons": [
+    {
+      "src": "/images/icons/icon-1x.png",
+      "sizes": "48x48",
+      "type" : "image/png"
+    }, {
+      "src": "/images/icons/icon-2x.png",
+      "sizes": "96x96",
+      "type" : "image/png"
+    }, {
+      "src": "/images/icons/icon-3x.png",
+      "sizes": "144x144",
+      "type" : "image/png"
+    }, {
+      "src": "/images/icons/icon-4x.png",
+      "sizes": "192x192",
+      "type" : "image/png"
+    }
+  ],
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#3e2723",
+  "theme_color": "#ffeb3b"
+}
