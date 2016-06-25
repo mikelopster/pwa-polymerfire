@@ -1,4 +1,6 @@
 <link rel='import' href='../bower_components/polymer/polymer.html'>
+<link rel='import' href='../bower_components/polymerfire/firebase-query.html'>
+<link rel='import' href='../bower_components/polymerfire/firebase-document.html'>
 
 <link rel='import' href='shared-styles.html'>
 <link rel='import' href='tweet-form.html'>
@@ -9,16 +11,68 @@
 
     <style include='shared-styles'></style>
 
+    <firebase-document id='document'>
+    </firebase-document>
+
+    <firebase-query id='query'
+      path='/tweets'
+      data='{{data}}'>
+    </firebase-query>
+
     <main>
       <tweet-form></tweet-form>
-      <tweet-card></tweet-card>
+      <template is='dom-repeat' items='[[data]]' sort='sortByCreatedTime'>
+        <tweet-card
+          name='[[item.name]]'
+          image='[[item.image]]'
+          text='[[item.text]]'
+          created-time='[[computeTime(item.createdTime)]]'>
+        </tweet-card>
+      </template>
     </main>
 
   </template>
   <script>
 
     Polymer({
-      is: 'tweet-feed'
+      is: 'tweet-feed',
+
+      properties: {
+        name: {
+          type: String
+        },
+        image: {
+          type: String
+        }
+      },
+
+      listeners: {
+        'tweet': 'onTweet'
+      },
+
+      computeTime: function (unixTime) {
+        return new Date(unixTime).toDateString();
+      },
+
+      sortByCreatedTime: function (a, b) {
+        return a.createdTime > b.createdTime ? -1 : 1;
+      },
+
+      onTweet: function (event) {
+        var doc = this.$.document;
+        var data = {
+          name: this.name,
+          image: this.image,
+          text: event.detail.text,
+          createdTime: Date.now()
+        };
+
+        doc.data = data;
+        doc.save('/tweets')
+          .then(function () {
+            doc.reset();
+          });
+      }
     });
 
   </script>
